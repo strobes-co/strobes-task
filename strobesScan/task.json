@@ -1,0 +1,63 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "f29446de9b3d4e56b98898c3b1bbe995",
+    "name": "Strobes_Scan",
+    "friendlyName": "Strobes API Scan",
+    "description": "Scan the repo for security Vulnerabilities using Strobes API",
+    "helpMarkDown": "",
+    "category": "Tool",
+    "author": "Akhil Reni",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Strobes Scan",
+    "inputs": [
+        {
+            "name": "strobes_url",
+            "type": "string",
+            "label": "Remote Strobes URL",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Remote Strobes URL"
+        },
+        {
+            "name": "auth_token",
+            "type": "string",
+            "label": "Strobes Authorization Token",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Strobes Authorization Token to be used for API calls for remote scan"
+        },
+        {
+            "name": "target",
+            "type": "string",
+            "label": "Branch Name",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Branch Name of git repository to be scanned"
+        },
+        {
+            "name": "config_name",
+            "type": "string",
+            "label": "Configuration name in Strobes",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Configuration name in Strobes server which is to be used for scan"
+        },
+        {
+            "name": "rules",
+            "type": "string",
+            "label": "Rules to check for threshold of bugs to be found",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Rules to check for threshold of bugs to be found"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}
